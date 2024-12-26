@@ -1,4 +1,4 @@
 export const fontWeight = {
-  fontWeight: "700",
+  fontWeight: "600",
   color: "white",
 };

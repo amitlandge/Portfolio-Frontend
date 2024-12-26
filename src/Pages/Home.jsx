@@ -1,9 +1,10 @@
-import { Box, Typography } from "@mui/material";
+import { Box } from "@mui/material";
+import Hero from "./Hero";
 
 const Home = () => {
   return (
     <Box>
-      <Typography>Home Page</Typography>
+      <Hero />
     </Box>
   );
 };

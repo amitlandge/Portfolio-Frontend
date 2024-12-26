@@ -11,7 +11,7 @@ function App() {
       </nav>
       <main>
         <Routes>
-          <Route path="./home" element={<Home />} />
+          <Route path="/" element={<Home />} />
         </Routes>
       </main>
     </>
