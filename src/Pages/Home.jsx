@@ -2,6 +2,7 @@ import { Box } from "@mui/material";
 import Hero from "./Hero";
 import Cards from "./Cards";
 import Achievement from "./Achievement";
+import Projects from "./Projects";
 
 const Home = () => {
   return (
@@ -9,6 +10,7 @@ const Home = () => {
       <Hero />
       <Cards />
       <Achievement />
+      <Projects />
     </Box>
   );
 };
