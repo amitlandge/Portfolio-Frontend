@@ -50,7 +50,7 @@ const Projects = () => {
           flexDirection: "row",
           justifyContent: "space-around",
           width: "80vw",
-          margin: "0% auto",
+          margin: "2rem auto",
           gap: "3rem",
           flexWrap: "wrap",
         }}
@@ -93,6 +93,41 @@ const Projects = () => {
             </Box>
           );
         })}
+      </Stack>
+      <Stack
+        sx={{
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "space-around",
+          alignItems: "center",
+          width: "80%",
+          margin: "0% auto",
+          padding: "2rem",
+          background: "#272424",
+        }}
+      >
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            gap: "1rem",
+          }}
+        >
+          <Typography
+            variant="h2"
+            sx={{
+              fontWeight: "700",
+              color: "white",
+            }}
+          >
+            Let's work together on your next project
+          </Typography>
+          <Typography variant="body1" sx={{ fontSize: "0.8rem", width: "70%" }}>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatem
+            eligendi itaque tempora totam dolores minima?
+          </Typography>
+        </Box>
+        <CustomButton1 title={"Contact"} />
       </Stack>
     </Box>
   );
