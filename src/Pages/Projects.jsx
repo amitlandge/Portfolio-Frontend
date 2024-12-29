@@ -1,6 +1,16 @@
-import { Box, Button, Stack, Typography } from "@mui/material";
+import {
+  Box,
+  Button,
+  MenuItem,
+  MenuList,
+  Stack,
+  Typography,
+} from "@mui/material";
 import CustomButton1 from "../UI/CustomButton1";
 import { projectData } from "../Data/ProjectData";
+
+import { fontWeight } from "../Style/fontWeight";
+import { Link } from "react-router-dom";
 
 const Projects = () => {
   return (
@@ -128,6 +138,35 @@ const Projects = () => {
           </Typography>
         </Box>
         <CustomButton1 title={"Contact"} />
+      </Stack>
+
+      <Stack
+        sx={{
+          width: "80%",
+          margin: "0% auto",
+        }}
+      >
+        <MenuList
+          sx={{
+            display: "flex",
+            fontWeight: "600",
+            justifyContent: "center",
+            padding: "2rem",
+          }}
+        >
+          <MenuItem>
+            <Link style={{ ...fontWeight }}>Home</Link>
+          </MenuItem>
+          <MenuItem>
+            <Link style={{ ...fontWeight }}>Projects</Link>
+          </MenuItem>
+          <MenuItem>
+            <Link style={{ ...fontWeight }}>About Us</Link>
+          </MenuItem>
+          <MenuItem>
+            <Link style={{ ...fontWeight }}>Contact Us</Link>
+          </MenuItem>
+        </MenuList>
       </Stack>
     </Box>
   );

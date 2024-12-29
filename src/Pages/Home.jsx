@@ -3,6 +3,7 @@ import Hero from "./Hero";
 import Cards from "./Cards";
 import Achievement from "./Achievement";
 import Projects from "./Projects";
+import Footer from "./Footer";
 
 const Home = () => {
   return (
@@ -11,6 +12,7 @@ const Home = () => {
       <Cards />
       <Achievement />
       <Projects />
+      <Footer />
     </Box>
   );
 };
