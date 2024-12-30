@@ -34,7 +34,9 @@ const Navbar = () => {
         </MenuItem>
         <MenuItem>
           <Info />
-          <Link style={{ ...fontWeight }}>About Us</Link>
+          <Link style={{ ...fontWeight }} to={"/about"}>
+            About Us
+          </Link>
         </MenuItem>
         <MenuItem>
           <ContactPage />

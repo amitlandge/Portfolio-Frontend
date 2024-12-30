@@ -1,4 +1,4 @@
-import { Box, Button, Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import userImage from "../assets/User.png";
 import CustomButton1 from "../UI/CustomButton1";
 const Hero = () => {
@@ -18,7 +18,7 @@ const Hero = () => {
           flex: "60%",
         }}
       >
-        <img src={userImage} alt="avatar" />
+        <img src={userImage} alt="avatar" width={"80%"} />
       </Box>
       <Box
         sx={{
