@@ -26,11 +26,15 @@ const Navbar = () => {
       >
         <MenuItem>
           <Home />
-          <Link style={{ ...fontWeight }}>Home</Link>
+          <Link style={{ ...fontWeight }} to={"/"}>
+            Home
+          </Link>
         </MenuItem>
         <MenuItem>
           <Article />
-          <Link style={{ ...fontWeight }}>Projects</Link>
+          <Link style={{ ...fontWeight }} to={"/projects"}>
+            Projects
+          </Link>
         </MenuItem>
         <MenuItem>
           <Info />
@@ -40,7 +44,9 @@ const Navbar = () => {
         </MenuItem>
         <MenuItem>
           <ContactPage />
-          <Link style={{ ...fontWeight }}>Contact Us</Link>
+          <Link style={{ ...fontWeight }} to={"/contact"}>
+            Contact Us
+          </Link>
         </MenuItem>
       </MenuList>
     </Box>
