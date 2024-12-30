@@ -1,6 +1,7 @@
-import { Box, MenuItem, MenuList, Typography } from "@mui/material";
+import { Box, MenuItem, MenuList } from "@mui/material";
 import { Link } from "react-router-dom";
 import { fontWeight } from "../Style/fontWeight.js";
+import logo from "../assets/logo.png";
 import { Article, ContactPage, Home, Info } from "@mui/icons-material";
 
 const Navbar = () => {
@@ -16,7 +17,7 @@ const Navbar = () => {
       }}
     >
       <Box>
-        <Typography variant="h2">Logo</Typography>
+        <img alt="logo" src={logo} width={"80rem"} />
       </Box>
       <MenuList
         sx={{
