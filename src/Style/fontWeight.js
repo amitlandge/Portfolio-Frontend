@@ -1,5 +1,9 @@
 export const fontWeight = {
   fontWeight: "600",
-  color: "white",
+  fontSize: "1.6rem",
+  textTransform: "uppercase",
   marginLeft: "0.5rem",
+  "&>a": {
+    color: "red",
+  },
 };
