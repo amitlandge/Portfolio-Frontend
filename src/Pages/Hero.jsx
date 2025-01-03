@@ -11,27 +11,42 @@ const Hero = () => {
         flexWrap: "wrap",
         justifyContent: "space-between",
         alignItems: "center",
+        "@media (max-width:900px)": {
+          flexDirection: "column",
+
+          alignItems: "flex-start",
+        },
       }}
     >
       <Box
         sx={{
-          flex: "60%",
+          flex: "55%",
+          "@media (max-width:900px)": {
+            width: "90%",
+          },
         }}
       >
-        <img
+        <Box
+          component="img"
           src={userImage}
-          alt="amit"
-          width={"55%"}
-          style={{ opacity: "0.8", padding: "0%", margin: "0%" }}
+          alt="Responsive Image"
+          sx={{
+            width: "55%", // Default width
+            height: "auto", // Maintain aspect ratio
+            "@media (max-width:800px)": {
+              width: "80%", // Shrink image for small screens
+            },
+          }}
         />
       </Box>
       <Box
         sx={{
-          flex: "40%",
+          flex: "35%",
           display: "flex",
           flexDirection: "column",
           alignItems: "flex-start",
           gap: "1rem",
+          padding: "1rem",
         }}
       >
         <Typography
@@ -48,7 +63,7 @@ const Hero = () => {
           variant="h1"
           sx={{
             fontWeight: "500",
-            fontSize: "4.2rem",
+            fontSize: "3.5rem",
           }}
         >
           Full Stack
@@ -56,9 +71,9 @@ const Hero = () => {
         <Typography
           variant="h1"
           sx={{
-            fontWeight: "600",
-            fontSize: "1.2rem",
-            alignSelf: "center",
+            fontWeight: "500",
+            fontSize: "3.5rem",
+            // alignSelf: "center",
           }}
         >
           Web Developer
@@ -69,9 +84,8 @@ const Hero = () => {
             width: "80%",
           }}
         >
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod, cum
-          enim soluta eius fugiat harum veritatis. Sit doloribus molestias
-          voluptates.
+          Transforming Ideas into Dynamic and Responsive Web Applications with
+          Cutting-Edge Technologies
         </Typography>
         <CustomButton1 title={"About Me"} />
       </Box>

@@ -1,6 +1,6 @@
 import { Box, Grid, Typography, Paper } from "@mui/material";
 import CustomButton1 from "../UI/CustomButton1";
-
+import userImage from "../assets/amit.JPG";
 const About = () => {
   return (
     <Box
@@ -40,7 +40,7 @@ const About = () => {
               <Grid item xs={12} sm={4}>
                 <Box
                   component="img"
-                  src="https://via.placeholder.com/300x300"
+                  src={userImage}
                   alt="Your Photo"
                   sx={{
                     width: "100%",

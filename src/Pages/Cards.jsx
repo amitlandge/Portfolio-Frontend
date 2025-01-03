@@ -1,19 +1,32 @@
 import { Box, Button, Stack, Typography } from "@mui/material";
 import { cartData } from "../Data/CartData.js";
+import { useEffect, useState } from "react";
+import axios from "axios";
 const Cards = () => {
+  const [data, setData] = useState([]);
+  const getCartData = async () => {
+    const res = await axios.get(
+      "https://raw.githubusercontent.com/amitlandge/Projects/refs/heads/main/cards.json"
+    );
+    console.log(res.data);
+    setData(res.data);
+  };
+  useEffect(() => {
+    getCartData();
+  }, []);
   return (
     <Box
       sx={{
         background: "#1e1d1d",
         display: "flex",
         flexWrap: "wrap",
-        justifyContent: "space-between",
+        justifyContent: "center",
         alignItems: "stretch !important",
         padding: "3rem",
         gap: "3rem",
       }}
     >
-      {cartData.map((item, index) => {
+      {data.map((item, index) => {
         return (
           <Stack
             key={index}
@@ -47,14 +60,14 @@ const Cards = () => {
                 textAlign: "center",
               }}
             >
-              {item.title}
+              {item?.title}
             </Typography>
             <Typography
               variant="body1"
               textAlign={"center"}
               fontSize={"0.9rem"}
             >
-              {item.description}
+              {item?.briefDescription}
             </Typography>
             <Button sx={{ color: "red" }}>Know More ➡ </Button>
           </Stack>

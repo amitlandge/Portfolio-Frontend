@@ -7,12 +7,24 @@ import {
   Typography,
 } from "@mui/material";
 import CustomButton1 from "../UI/CustomButton1";
-import { projectData } from "../Data/ProjectData";
 
-import { fontWeight } from "../Style/fontWeight";
 import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 const Projects = () => {
+  const [data, setData] = useState([]);
+  const getCartData = async () => {
+    const res = await axios.get(
+      "https://raw.githubusercontent.com/amitlandge/Projects/refs/heads/main/projects.json"
+    );
+    console.log(res.data);
+    const slicedData = res.data.slice(0, 4);
+    setData(slicedData);
+  };
+  useEffect(() => {
+    getCartData();
+  }, []);
   return (
     <Box
       sx={{
@@ -24,7 +36,7 @@ const Projects = () => {
         sx={{
           flexWrap: "wrap",
           padding: "2rem",
-          width: "80%",
+          width: "80vw",
           margin: "0% auto",
           justifyContent: "space-between",
           alignItems: "center",
@@ -58,19 +70,22 @@ const Projects = () => {
         sx={{
           display: "flex",
           flexDirection: "row",
-          justifyContent: "space-around",
+          // justifyContent: "space-around",
           width: "80vw",
           margin: "2rem auto",
           gap: "3rem",
-          flexWrap: "wrap",
+          flexWrap: "wrap !important",
+          "@media (max-width:800px)": {
+            flexDirection: "column", // Shrink image for small screens
+          },
         }}
       >
-        {projectData.map((item) => {
+        {data.map((item) => {
           return (
             <Box
               key={item.id}
               sx={{
-                width: "40%",
+                flex: "40%",
               }}
             >
               <Box
@@ -84,13 +99,11 @@ const Projects = () => {
                   src={item.thumbnail}
                   style={{
                     width: "100%",
-                    height: "200px",
-                    objectFit: "cover",
                   }}
                 />
               </Box>
               <Typography
-                variant="h4"
+                variant="h6"
                 sx={{
                   color: "white",
                   fontWeight: "700",
@@ -110,6 +123,7 @@ const Projects = () => {
           flexDirection: "row",
           justifyContent: "space-around",
           alignItems: "center",
+          flexWrap: "wrap",
           width: "80%",
           margin: "0% auto",
           padding: "2rem",
@@ -155,16 +169,16 @@ const Projects = () => {
           }}
         >
           <MenuItem>
-            <Link style={{ ...fontWeight }}>Home</Link>
+            <Link>Home</Link>
           </MenuItem>
           <MenuItem>
-            <Link style={{ ...fontWeight }}>Projects</Link>
+            <Link>Projects</Link>
           </MenuItem>
           <MenuItem>
-            <Link style={{ ...fontWeight }}>About Us</Link>
+            <Link>About Us</Link>
           </MenuItem>
           <MenuItem>
-            <Link style={{ ...fontWeight }}>Contact Us</Link>
+            <Link>Contact Us</Link>
           </MenuItem>
         </MenuList>
       </Stack>
