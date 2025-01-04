@@ -24,6 +24,9 @@ const Hero = () => {
           "@media (max-width:900px)": {
             width: "90%",
           },
+          "@media (max-width:500px)": {
+            width: "97%",
+          },
         }}
       >
         <Box
@@ -37,7 +40,7 @@ const Hero = () => {
               width: "80%", // Shrink image for small screens
             },
             "@media (max-width:500px)": {
-              width: "95%", // Shrink image for small screens
+              width: "100%", // Shrink image for small screens
             },
           }}
         />

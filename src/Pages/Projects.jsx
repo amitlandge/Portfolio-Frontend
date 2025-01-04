@@ -40,6 +40,7 @@ const Projects = () => {
           margin: "0% auto",
           justifyContent: "space-between",
           alignItems: "center",
+          gap: "2rem",
         }}
       >
         <Box
@@ -133,6 +134,7 @@ const Projects = () => {
           margin: "0% auto",
           padding: "2rem",
           background: "#272424",
+          gap: "3rem",
         }}
       >
         <Box

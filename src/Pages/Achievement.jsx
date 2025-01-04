@@ -16,7 +16,7 @@ const Achievement = () => {
         padding: "4rem",
       }}
     >
-      <Grid2 container spacing={4} alignItems="center">
+      <Grid2 container justifyContent={"center"} alignItems="center">
         {/* Left Side */}
         <Grid2 xs={12} md={4}>
           <Box textAlign="center" margin={"1rem"}>
