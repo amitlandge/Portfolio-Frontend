@@ -60,7 +60,7 @@ const About = () => {
                   MERN stack. I love building responsive and user-focused web
                   applications. Let's collaborate to create amazing projects!
                 </Typography>
-                <CustomButton1 title={"Contact Me"} />
+                <CustomButton1 title={"Contact Me"} url={"/contact"} />
               </Grid>
             </Grid>
           </Paper>

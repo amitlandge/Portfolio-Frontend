@@ -36,6 +36,9 @@ const Hero = () => {
             "@media (max-width:800px)": {
               width: "80%", // Shrink image for small screens
             },
+            "@media (max-width:500px)": {
+              width: "95%", // Shrink image for small screens
+            },
           }}
         />
       </Box>
@@ -87,7 +90,7 @@ const Hero = () => {
           Transforming Ideas into Dynamic and Responsive Web Applications with
           Cutting-Edge Technologies
         </Typography>
-        <CustomButton1 title={"About Me"} />
+        <CustomButton1 title={"About Me"} url={"/about"} />
       </Box>
     </Box>
   );

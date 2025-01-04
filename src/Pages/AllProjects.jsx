@@ -37,6 +37,9 @@ const AllProjects = () => {
           margin: "0 auto",
           gap: "3rem",
           flexWrap: "wrap",
+          "@media (max-width:800px)": {
+            flexDirection: "column", // Shrink image for small screens
+          },
         }}
       >
         {data.map((item) => {
@@ -45,6 +48,10 @@ const AllProjects = () => {
               key={item.id}
               sx={{
                 width: "40%",
+                "@media (max-width:800px)": {
+                  width: "80%",
+                  margin: "0% auto", // Shrink image for small screens
+                },
               }}
             >
               <Box
@@ -62,7 +69,7 @@ const AllProjects = () => {
                 />
               </Box>
               <Typography
-                variant="h4"
+                variant="h6"
                 sx={{
                   color: "white",
                   fontWeight: "700",

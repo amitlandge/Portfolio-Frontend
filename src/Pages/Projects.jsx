@@ -51,7 +51,7 @@ const Projects = () => {
           }}
         >
           <Typography
-            variant="h2"
+            variant="h5"
             sx={{
               textTransform: "uppercase",
               fontWeight: "700",
@@ -64,7 +64,7 @@ const Projects = () => {
             Lorem ipsum dolor sit, amet consectetur adipisicing.
           </Typography>
         </Box>
-        <CustomButton1 title={"View All"} />
+        <CustomButton1 title={"View All"} url={"/projects"} />
       </Stack>
       <Stack
         sx={{
@@ -112,7 +112,12 @@ const Projects = () => {
               >
                 {item.title}
               </Typography>
-              <Button sx={{ color: "red" }}>Know More ➡ </Button>
+              <Link
+                to={`/projects/${item.id}`}
+                style={{ textDecoration: "none" }}
+              >
+                <Button sx={{ color: "red" }}>Know More ➡</Button>
+              </Link>
             </Box>
           );
         })}
@@ -138,20 +143,20 @@ const Projects = () => {
           }}
         >
           <Typography
-            variant="h2"
+            variant="h5"
             sx={{
               fontWeight: "700",
               color: "white",
             }}
           >
-            Let's work together on your next project
+            Let's Build Something Amazing Together
           </Typography>
           <Typography variant="body1" sx={{ fontSize: "0.8rem", width: "70%" }}>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatem
-            eligendi itaque tempora totam dolores minima?
+            Empowering businesses with dynamic web solutions. Let's bring your
+            ideas to life with modern web technologies.
           </Typography>
         </Box>
-        <CustomButton1 title={"Contact"} />
+        <CustomButton1 title={"Contact"} url={"/contact"} />
       </Stack>
 
       <Stack

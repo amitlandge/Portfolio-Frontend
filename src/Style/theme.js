@@ -18,7 +18,7 @@ let theme = createTheme({
         fontSize: "2rem",
       },
       "@media (max-width:800px)": {
-        fontSize: "1.75rem",
+        fontSize: "1.5rem",
       },
     },
     h3: {
@@ -27,7 +27,7 @@ let theme = createTheme({
         fontSize: "1.75rem",
       },
       "@media (max-width:800px)": {
-        fontSize: "1.5rem",
+        fontSize: "1.3rem",
       },
     },
     body1: {
@@ -36,7 +36,7 @@ let theme = createTheme({
         fontSize: "0.9rem",
       },
       "@media (max-width:800px)": {
-        fontSize: "0.8rem",
+        fontSize: "0.7rem",
       },
     },
     body2: {
@@ -46,6 +46,15 @@ let theme = createTheme({
       },
       "@media (max-width:800px)": {
         fontSize: "0.75rem",
+      },
+    },
+    subtitle1: {
+      fontSize: "1.6rem",
+      "@media (max-width:1200px)": {
+        fontSize: "1.5rem",
+      },
+      "@media (max-width:800px)": {
+        fontSize: "1rem",
       },
     },
     caption: {
@@ -73,7 +82,7 @@ let theme = createTheme({
         html: {
           fontSize: "62.5%", // Default font size (10px = 1rem)
           "@media (max-width:800px)": {
-            fontSize: "40%", // Smaller screens
+            fontSize: "50%", // Smaller screens
           },
         },
       },

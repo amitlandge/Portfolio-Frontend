@@ -19,22 +19,21 @@ const Achievement = () => {
       <Grid2 container spacing={4} alignItems="center">
         {/* Left Side */}
         <Grid2 xs={12} md={4}>
-          <Box textAlign="center">
+          <Box textAlign="center" margin={"1rem"}>
             <Typography
               variant="h1"
               sx={{
                 color: "#FF0000",
                 fontWeight: "bold",
-                fontSize: "8rem",
+
                 marginBottom: "1rem",
               }}
             >
               40+
             </Typography>
             <Typography
-              variant="h6"
+              variant="h5"
               sx={{
-                fontSize: "2rem",
                 fontWeight: "300",
               }}
             >
@@ -57,11 +56,11 @@ const Achievement = () => {
                   }}
                 >
                   <Typography
-                    variant="h3"
+                    variant="h2"
                     sx={{
                       color: "#FF0000",
                       fontWeight: "bold",
-                      fontSize: "4rem",
+
                       marginBottom: "1rem",
                     }}
                   >
@@ -70,7 +69,7 @@ const Achievement = () => {
                   <Typography
                     variant="body1"
                     sx={{
-                      fontSize: "1.2rem",
+                      fontSize: "1.4rem",
                       fontWeight: "300",
                     }}
                   >

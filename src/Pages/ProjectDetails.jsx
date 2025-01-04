@@ -99,7 +99,7 @@ const ProjectDetails = () => {
         </Box>
 
         <Box sx={{ mt: 4 }}>
-          <Stack direction="row" spacing={2}>
+          <Stack direction="row" flexWrap={"wrap"} gap={"2rem"}>
             {project?.frontendGithub &&
               typeof project?.frontendGithub === "string" && (
                 <Button
