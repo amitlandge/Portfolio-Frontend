@@ -2,6 +2,7 @@ import { Box, Button, Stack, Typography } from "@mui/material";
 import { cartData } from "../Data/CartData.js";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 const Cards = () => {
   const [data, setData] = useState([]);
   const getCartData = async () => {
@@ -69,7 +70,13 @@ const Cards = () => {
             >
               {item?.briefDescription}
             </Typography>
-            <Button sx={{ color: "red" }}>Know More ➡ </Button>
+            <Button
+              sx={{ color: "red" }}
+              component={Link}
+              to={`/card/${item.id}`}
+            >
+              Know More ➡{" "}
+            </Button>
           </Stack>
         );
       })}

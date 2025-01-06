@@ -3,6 +3,7 @@ import { createTheme, responsiveFontSizes } from "@mui/material/styles";
 let theme = createTheme({
   typography: {
     fontFamily: "Montserrat, serif",
+    backgroundColor: "#111111",
     h1: {
       fontSize: "3rem", // Default for large screens
       "@media (max-width:1200px)": {

@@ -10,7 +10,7 @@ import {
 } from "@mui/material";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import CustomButton1 from "../UI/CustomButton1";
 import { GitHub } from "@mui/icons-material";
 
@@ -53,6 +53,15 @@ const ProjectDetails = () => {
 
   return (
     <Box sx={{ background: "#111111", minHeight: "100vh", py: 4 }}>
+      <Box sx={{ textAlign: "center", marginBottom: "2rem" }}>
+        <Typography
+          variant="h3"
+          sx={{ color: "rgb(255,2,0)", fontWeight: "bold", fontSize: "3rem" }}
+        >
+          Project Deatils
+        </Typography>
+      </Box>
+
       <Box
         sx={{
           maxWidth: "80%",

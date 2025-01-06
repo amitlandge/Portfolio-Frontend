@@ -29,6 +29,7 @@ const Projects = () => {
     <Box
       sx={{
         background: "#111111",
+        paddingBottom: "3rem",
       }}
     >
       <Stack
@@ -161,7 +162,7 @@ const Projects = () => {
         <CustomButton1 title={"Contact"} url={"/contact"} />
       </Stack>
 
-      <Stack
+      {/* <Stack
         sx={{
           width: "80%",
           margin: "0% auto",
@@ -176,19 +177,19 @@ const Projects = () => {
           }}
         >
           <MenuItem>
-            <Link>Home</Link>
+            <Link to={"/"}>Home</Link>
           </MenuItem>
           <MenuItem>
-            <Link>Projects</Link>
+            <Link to={"/projects"}>Projects</Link>
           </MenuItem>
           <MenuItem>
-            <Link>About Us</Link>
+            <Link to={"/about"}>About Us</Link>
           </MenuItem>
           <MenuItem>
-            <Link>Contact Us</Link>
+            <Link to={"/contact"}>Contact Us</Link>
           </MenuItem>
         </MenuList>
-      </Stack>
+      </Stack> */}
     </Box>
   );
 };
