@@ -1,6 +1,7 @@
 import { Box, Typography } from "@mui/material";
 import userImage from "../assets/amit12.png";
 import CustomButton1 from "../UI/CustomButton1";
+
 const Hero = () => {
   return (
     <Box

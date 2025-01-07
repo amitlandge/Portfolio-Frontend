@@ -1,72 +1,72 @@
-import {
-  Facebook,
-  GitHub,
-  Instagram,
-  LinkedIn,
-  Twitter,
-} from "@mui/icons-material";
+import { GitHub, Instagram, LinkedIn } from "@mui/icons-material";
 import { Box, MenuItem, MenuList, Stack } from "@mui/material";
 import { Link } from "react-router-dom";
-
+import { motion } from "framer-motion";
 const Footer = () => {
   return (
-    <Stack
-      sx={{
-        background: "#272424",
-        display: "flex",
-        flexWrap: "wrap",
-        flexDirection: "row",
-        justifyContent: "space-around",
-        padding: "1rem",
-        alignItems: "center",
-        color: "white",
-      }}
+    <motion.div
+      initial={{ transform: "translateX(800px)", opacity: 0 }}
+      animate={{ transform: "translateX(0)", opacity: 1 }}
+      transition={{ duration: 1 }}
     >
-      <Stack>
-        <MenuList
-          sx={{
-            display: "flex",
-            fontWeight: "600",
-            justifyContent: "center",
-            flexWrap: "wrap",
-          }}
-        >
-          <MenuItem>
-            <Link to={"/"}>Home</Link>
-          </MenuItem>
-          <MenuItem>
-            <Link to={"/projects"}>Projects</Link>
-          </MenuItem>
-          <MenuItem>
-            <Link to={"/about"}>About Us</Link>
-          </MenuItem>
-          <MenuItem>
-            <Link to={"/contact"}>Contact Us</Link>
-          </MenuItem>
-        </MenuList>
-      </Stack>
-      <Box
+      <Stack
         sx={{
-          color: "white",
+          background: "#272424",
           display: "flex",
-          gap: "2rem",
-          fontSize: "1.6rem",
+          flexWrap: "wrap",
+          flexDirection: "row",
+          justifyContent: "space-around",
+          padding: "1rem",
+          alignItems: "center",
+          color: "white",
         }}
       >
-        <Link to={"https://www.instagram.com/_amit333_/"} target="_blank">
-          <Instagram />
-        </Link>
-        <Link
-          to={"https://www.linkedin.com/in/amit-landge-a28159249/"}
-          target="_blank"
+        <Stack>
+          <MenuList
+            sx={{
+              display: "flex",
+              fontWeight: "600",
+              justifyContent: "center",
+              flexWrap: "wrap",
+            }}
+          >
+            <MenuItem>
+              <Link to={"/"}>Home</Link>
+            </MenuItem>
+            <MenuItem>
+              <Link to={"/projects"}>Projects</Link>
+            </MenuItem>
+            <MenuItem>
+              <Link to={"/about"}>About Us</Link>
+            </MenuItem>
+            <MenuItem>
+              <Link to={"/contact"}>Contact Us</Link>
+            </MenuItem>
+          </MenuList>
+        </Stack>
+        <Box
+          sx={{
+            color: "white",
+            display: "flex",
+            gap: "2rem",
+            fontSize: "1.6rem",
+          }}
         >
-          <LinkedIn />
-        </Link>
-        <Link to={"https://github.com/amitlandge"} target="_blank">
-          <GitHub />
-        </Link>
-      </Box>
-    </Stack>
+          <Link to={"https://www.instagram.com/_amit333_/"} target="_blank">
+            <Instagram />
+          </Link>
+          <Link
+            to={"https://www.linkedin.com/in/amit-landge-a28159249/"}
+            target="_blank"
+          >
+            <LinkedIn />
+          </Link>
+          <Link to={"https://github.com/amitlandge"} target="_blank">
+            <GitHub />
+          </Link>
+        </Box>
+      </Stack>
+    </motion.div>
   );
 };
 
