@@ -8,31 +8,29 @@ import {
   Chip,
   Stack,
 } from "@mui/material";
-import axios from "axios";
-import { useEffect, useState } from "react";
+
 import { useParams } from "react-router-dom";
 import CustomButton1 from "../UI/CustomButton1";
 import { GitHub } from "@mui/icons-material";
 import { motion } from "framer-motion";
+import { useQuery } from "@tanstack/react-query";
+import { fetchData } from "../utils/fetchData";
+import { toast } from "react-toastify";
 const ProjectDetails = () => {
   const { pid } = useParams(); // Get the project ID from the URL
-  const [project, setProject] = useState(null);
-  console.log(pid);
 
-  const getCartData = async () => {
-    const res = await axios.get(
-      "https://raw.githubusercontent.com/amitlandge/Projects/refs/heads/main/projects.json"
-    );
-    console.log(res.data);
-    const findProject = res?.data?.find((item) => item.id === pid);
+  const { data } = useQuery({
+    queryKey: [
+      "projectDetails",
+      "https://raw.githubusercontent.com/amitlandge/Projects/refs/heads/main/projects.json",
+    ], // Unique key for caching
+    queryFn: fetchData,
+    onError: (error) => {
+      toast.error(`Error: ${error.message}`);
+    },
+  });
 
-    setProject(findProject);
-  };
-
-  useEffect(() => {
-    getCartData();
-  }, []);
-
+  const project = data?.find((item) => item.id === pid);
   if (!project) {
     return (
       <Box
@@ -43,10 +41,10 @@ const ProjectDetails = () => {
           textAlign: "center",
         }}
       >
-        <Typography variant="h1" color="error" textAlign="center">
-          Project not found
+        <Typography variant="h1" color="error" textAlign="center" mb={4}>
+          Project Details not found
         </Typography>
-        <CustomButton1 title={"Go Back"} />
+        <CustomButton1 title={"Go Back"} url={"/projects"} />
       </Box>
     );
   }
@@ -55,7 +53,7 @@ const ProjectDetails = () => {
     <motion.div
       initial={{ transform: "translateX(800px)", opacity: 0 }}
       animate={{ transform: "translateX(0)", opacity: 1 }}
-      transition={{ duration: 1 }}
+      transition={{ duration: 0.5 }}
     >
       <Box sx={{ background: "#111111", minHeight: "100vh", py: 4 }}>
         <Box sx={{ textAlign: "center", marginBottom: "2rem" }}>

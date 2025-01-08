@@ -1,30 +1,40 @@
-import {
-  Box,
-  Button,
-  MenuItem,
-  MenuList,
-  Stack,
-  Typography,
-} from "@mui/material";
+import { Box, Button, Stack, Typography } from "@mui/material";
 import CustomButton1 from "../UI/CustomButton1";
 
 import { Link } from "react-router-dom";
-import { useEffect, useState } from "react";
-import axios from "axios";
+import { useQuery } from "@tanstack/react-query";
+import { fetchData } from "../utils/fetchData";
+import { toast } from "react-toastify";
 
 const Projects = () => {
-  const [data, setData] = useState([]);
-  const getCartData = async () => {
-    const res = await axios.get(
-      "https://raw.githubusercontent.com/amitlandge/Projects/refs/heads/main/projects.json"
+  const { data } = useQuery({
+    queryKey: [
+      "projects",
+      "https://raw.githubusercontent.com/amitlandge/Projects/refs/heads/main/projects.json",
+    ], // Unique key for caching
+    queryFn: fetchData,
+    onError: (error) => {
+      toast.error(`Error: ${error.message}`);
+    },
+  });
+  const slicedData = data?.slice(0, 4);
+  if (!data) {
+    return (
+      <Box
+        sx={{
+          background: "#111111",
+          minHeight: "100vh",
+          py: 4,
+          textAlign: "center",
+        }}
+      >
+        <Typography variant="h1" color="error" textAlign="center" mb={4}>
+          Project not found
+        </Typography>
+        <CustomButton1 title={"Go Back"} url={"/home"} />
+      </Box>
     );
-    console.log(res.data);
-    const slicedData = res.data.slice(0, 4);
-    setData(slicedData);
-  };
-  useEffect(() => {
-    getCartData();
-  }, []);
+  }
   return (
     <Box
       sx={{
@@ -82,7 +92,7 @@ const Projects = () => {
           },
         }}
       >
-        {data.map((item) => {
+        {slicedData?.map((item) => {
           return (
             <Box
               key={item.id}

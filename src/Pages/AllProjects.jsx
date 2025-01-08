@@ -1,25 +1,44 @@
 import { Box, Button, Stack, Typography } from "@mui/material";
-import axios from "axios";
-import { useEffect, useState } from "react";
+
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import { useQuery } from "@tanstack/react-query";
+import { fetchData } from "../utils/fetchData.js";
+import { toast } from "react-toastify";
+import CustomButton1 from "../UI/CustomButton1.jsx";
 const AllProjects = () => {
-  const [data, setData] = useState([]);
-  const getCartData = async () => {
-    const res = await axios.get(
-      "https://raw.githubusercontent.com/amitlandge/Projects/refs/heads/main/projects.json"
+  const { data } = useQuery({
+    queryKey: [
+      "projects",
+      "https://raw.githubusercontent.com/amitlandge/Projects/refs/heads/main/projects.json",
+    ], // Unique key for caching
+    queryFn: fetchData,
+    onError: (error) => {
+      toast.error(`Error: ${error.message}`);
+    },
+  });
+  if (!data) {
+    return (
+      <Box
+        sx={{
+          background: "#111111",
+          minHeight: "100vh",
+          py: 4,
+          textAlign: "center",
+        }}
+      >
+        <Typography variant="h1" color="error" textAlign="center" mb={4}>
+          Projects not found
+        </Typography>
+        <CustomButton1 title={"Go Back"} url={"/projects"} />
+      </Box>
     );
-
-    setData(res.data);
-  };
-  useEffect(() => {
-    getCartData();
-  }, []);
+  }
   return (
     <motion.div
       initial={{ transform: "translateX(800px)", opacity: 0 }}
       animate={{ transform: "translateX(0)", opacity: 1 }}
-      transition={{ duration: 1 }}
+      transition={{ duration: 0.5 }}
     >
       <Box sx={{ background: "#111111" }}>
         <Box sx={{ textAlign: "center", padding: "2rem" }}>
@@ -47,7 +66,7 @@ const AllProjects = () => {
             },
           }}
         >
-          {data.map((item) => {
+          {data?.map((item) => {
             return (
               <Box
                 key={item.id}

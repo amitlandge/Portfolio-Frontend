@@ -8,32 +8,51 @@ import {
   Box,
   Container,
 } from "@mui/material";
-import axios from "axios";
+
 import { useParams } from "react-router-dom";
 
 import { motion } from "framer-motion";
+import { useQuery } from "@tanstack/react-query";
+import { fetchData } from "../utils/fetchData";
+import { toast } from "react-toastify";
+import CustomButton1 from "../UI/CustomButton1";
 
 const CardDetails = () => {
   const { cid } = useParams(); // Get the project ID from the URL
-  const [cardDetail, setCardDetais] = useState(null);
-  const getCartData = async () => {
-    const res = await axios.get(
-      "https://raw.githubusercontent.com/amitlandge/Projects/refs/heads/main/cardDetails.json"
-    );
-    console.log(res.data);
-    const findCardDetails = res?.data?.find((item) => item.id === cid);
 
-    setCardDetais(findCardDetails);
-  };
-  console.log(cardDetail);
-  useEffect(() => {
-    getCartData();
-  }, []);
+  const { data } = useQuery({
+    queryKey: [
+      "cardDetails",
+      "https://raw.githubusercontent.com/amitlandge/Projects/refs/heads/main/cardDetails.json",
+    ], // Unique key for caching
+    queryFn: fetchData,
+    onError: (error) => {
+      toast.error(`Error: ${error.message}`);
+    },
+  });
+  const cardDetail = data?.find((item) => item.id === cid);
+  if (!cardDetail) {
+    return (
+      <Box
+        sx={{
+          background: "#111111",
+          minHeight: "100vh",
+          py: 4,
+          textAlign: "center",
+        }}
+      >
+        <Typography variant="h1" color="error" textAlign="center" mb={4}>
+          Page not found
+        </Typography>
+        <CustomButton1 title={"Go Back"} url={"/home"} />
+      </Box>
+    );
+  }
   return (
     <motion.div
       initial={{ transform: "translateX(800px)", opacity: 0 }}
       animate={{ transform: "translateX(0)", opacity: 1 }}
-      transition={{ duration: 1 }}
+      transition={{ duration: 0.5 }}
     >
       <Box sx={{ background: "#111111", minHeight: "100vh", py: 4 }}>
         <Container maxWidth="md" sx={{ background: "#111111" }}>

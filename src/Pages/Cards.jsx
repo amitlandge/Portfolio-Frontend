@@ -1,20 +1,20 @@
 import { Box, Button, Stack, Typography } from "@mui/material";
-import { cartData } from "../Data/CartData.js";
-import { useEffect, useState } from "react";
-import axios from "axios";
+
 import { Link } from "react-router-dom";
+import { fetchData } from "../utils/fetchData.js";
+import { useQuery } from "@tanstack/react-query";
+import { toast } from "react-toastify";
 const Cards = () => {
-  const [data, setData] = useState([]);
-  const getCartData = async () => {
-    const res = await axios.get(
-      "https://raw.githubusercontent.com/amitlandge/Projects/refs/heads/main/cards.json"
-    );
-    console.log(res.data);
-    setData(res.data);
-  };
-  useEffect(() => {
-    getCartData();
-  }, []);
+  const { data } = useQuery({
+    queryKey: [
+      "cards",
+      "https://raw.githubusercontent.com/amitlandge/Projects/refs/heads/main/cards.json",
+    ], // Unique key for caching
+    queryFn: fetchData,
+    onError: (error) => {
+      toast.error(`Error: ${error.message}`);
+    },
+  });
   return (
     <Box
       sx={{
@@ -27,7 +27,7 @@ const Cards = () => {
         gap: "3rem",
       }}
     >
-      {data.map((item, index) => {
+      {data?.map((item, index) => {
         return (
           <Stack
             key={index}

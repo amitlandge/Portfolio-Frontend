@@ -9,12 +9,14 @@ import ProjectDetails from "./Pages/ProjectDetails";
 import CardDetails from "./Pages/CardDetails";
 import Footer from "./Pages/Footer";
 import { motion } from "framer-motion";
-
+import { ToastContainer } from "react-toastify";
+import PageNotFound from "./Pages/PageNotFound";
 function App() {
   return (
     <>
       <nav>
         <Navbar />
+        <ToastContainer position="top-right" autoClose={2000} />
       </nav>
       <main>
         <motion.div
@@ -24,6 +26,8 @@ function App() {
         >
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/*" element={<PageNotFound />} />
+            <Route path="/home" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/projects" element={<AllProjects />} />
