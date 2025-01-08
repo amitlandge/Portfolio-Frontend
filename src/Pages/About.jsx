@@ -1,6 +1,6 @@
 import { Box, Grid, Typography, Paper } from "@mui/material";
 import CustomButton1 from "../UI/CustomButton1";
-import userImage from "../assets/amit.JPG";
+
 import { motion } from "framer-motion";
 const About = () => {
   return (
@@ -46,7 +46,7 @@ const About = () => {
                 <Grid item xs={12} sm={4}>
                   <Box
                     component="img"
-                    src={userImage}
+                    src="https://res.cloudinary.com/dow92cdi4/image/upload/v1736315736/amit_d5mpwa.jpg"
                     alt="Your Photo"
                     sx={{
                       width: "100%",

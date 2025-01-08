@@ -1,5 +1,5 @@
 import { Box, Typography } from "@mui/material";
-import userImage from "../assets/amit12.png";
+
 import CustomButton1 from "../UI/CustomButton1";
 
 const Hero = () => {
@@ -32,7 +32,7 @@ const Hero = () => {
       >
         <Box
           component="img"
-          src={userImage}
+          src="https://res.cloudinary.com/dow92cdi4/image/upload/v1736315580/amit12_bitbir.png"
           alt="Responsive Image"
           sx={{
             width: "55%", // Default width

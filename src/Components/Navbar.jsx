@@ -12,6 +12,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import { Link } from "react-router-dom";
 import { fontWeight } from "../Style/fontWeight";
+import { Article, Home, Info, PermPhoneMsg } from "@mui/icons-material";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
@@ -82,18 +83,23 @@ const Navbar = () => {
               flexDirection: "column",
               justifyContent: "center",
               alignItems: "center",
+              gap: "1rem",
             }}
           >
             <MenuItem sx={{ ...fontWeight }} onClick={toggleDrawer}>
+              <Home />
               <Link to={"/"}>Home</Link>
             </MenuItem>
             <MenuItem sx={{ ...fontWeight }} onClick={toggleDrawer}>
+              <Article />
               <Link to={"projects"}>Projects</Link>
             </MenuItem>
             <MenuItem sx={{ ...fontWeight }} onClick={toggleDrawer}>
+              <Info />
               <Link to={"about"}>About Us</Link>
             </MenuItem>
             <MenuItem sx={{ ...fontWeight }} onClick={toggleDrawer}>
+              <PermPhoneMsg />
               <Link to={"contact"}>Contact Us</Link>
             </MenuItem>
           </MenuList>
